@@ -1,8 +1,7 @@
 #!/usr/bin/env ruby
-require 'open-uri'
 
 File.open('url.txt', 'r').each_line do |line|
-  line = line.chomp
+  line.chomp!
   command = "curl --silent -L #{line}|grep -i x-camel-cur-price|grep amazon"
   reciever = line.gsub(/http\:\/\/camelcamelcamel\.com\//,"").gsub(/\/product.*$/,"")
   puts "---#{reciever}---"
